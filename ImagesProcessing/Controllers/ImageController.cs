@@ -10,46 +10,48 @@ namespace ImagesProcessing.Controllers
     [ApiController]
     public class ImageController : ControllerBase
     {
-        private readonly ImageRepository _imageRepository;
+        private readonly IImageRepository _imageRepository;
 
-        public ImageController(ImageRepository imageRepository)
+        public ImageController(IImageRepository imageRepository)
         {
             _imageRepository = imageRepository;
         }
 
         [HttpPost]
-        public async Task<ActionResult<Image>> ConvertImages([FromForm]Image images)
+        public async Task<ActionResult<List<string>>> ConvertImages([FromForm]Image images)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    //foreach(var imageSet in images)
+                    List<string> names = new List<string>();
+                    //foreach (var imageSet in images)
                     //{
                         foreach (var img in images.ImgFile)
                         {
                             string imageName = Convert.ToString(_imageRepository.SaveImage(img));
 
-                            //if(imageSet.Eff1 == true)
-                            //{
-                            //    bool s1 = _imageRepository.Effect01(img, imageName);
-                            //}
+                        if (images.Eff1 == true)
+                        {
+                            bool s1 = _imageRepository.Effect01(img, imageName);
+                        }
 
-                            //if (imageSet.Eff2 == true)
-                            //{
-                            //    bool s1 = _imageRepository.Effect02(img, imageName);
-                            //}
+                        //if (imageSet.Eff2 == true)
+                        //{
+                        //    bool s1 = _imageRepository.Effect02(img, imageName);
+                        //}
 
-                            //if (imageSet.Eff3 == true)
-                            //{
-                            //    bool s1 = _imageRepository.Effect03(img, imageName);
-                            //}
+                        //if (imageSet.Eff3 == true)
+                        //{
+                        //    bool s1 = _imageRepository.Effect03(img, imageName);
+                        //}
+                        names.Add(imageName);
                         }
                     //}
 
                     return Ok();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     return BadRequest(e);
                 }
@@ -58,6 +60,8 @@ namespace ImagesProcessing.Controllers
             {
                 return BadRequest("Validation Faild!");
             }
+
+            return Ok();
         }
     }
 }
