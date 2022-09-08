@@ -89,7 +89,7 @@ namespace ImagesProcessing.Repositories
                 //Resize
                 string getPath = Path.Combine(_hostEnvironment.ContentRootPath, "Resources\\Upload", name);
                 string setPath = Path.Combine(_hostEnvironment.ContentRootPath, "Resources\\E3", name);
-                resizeImage(getPath, setPath, 100);
+                resizeImage(getPath, setPath, 150);
 
                 //Blur
                 string path = Path.Combine(_hostEnvironment.ContentRootPath, "Resources\\E3", name);

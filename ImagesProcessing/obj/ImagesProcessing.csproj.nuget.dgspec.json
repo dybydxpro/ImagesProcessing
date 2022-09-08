@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tharindu\\Documents\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj": {}
+    "E:\\Tharindu\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tharindu\\Documents\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj": {
+    "E:\\Tharindu\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tharindu\\Documents\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj",
+        "projectUniqueName": "E:\\Tharindu\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj",
         "projectName": "ImagesProcessing",
-        "projectPath": "C:\\Users\\tharindu\\Documents\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj",
+        "projectPath": "E:\\Tharindu\\GitHub\\ImagesProcessing\\ImagesProcessing\\ImagesProcessing.csproj",
         "packagesPath": "C:\\Users\\tharindu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tharindu\\Documents\\GitHub\\ImagesProcessing\\ImagesProcessing\\obj\\",
+        "outputPath": "E:\\Tharindu\\GitHub\\ImagesProcessing\\ImagesProcessing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tharindu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,6 +41,14 @@
             "CoreCompat.System.Drawing": {
               "target": "Package",
               "version": "[1.0.0-beta006, )"
+            },
+            "Microsoft.AspNet.Cors": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Certificate": {
+              "target": "Package",
+              "version": "[6.0.8, )"
             },
             "SixLabors.ImageSharp": {
               "target": "Package",
