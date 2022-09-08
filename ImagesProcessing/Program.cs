@@ -1,25 +1,18 @@
 using ImagesProcessing.Repositories;
-using Microsoft.AspNetCore.Authentication.Certificate;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddAuthentication(
-        CertificateAuthenticationDefaults.AuthenticationScheme)
-    .AddCertificate();
-
+builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "MyPolicy",
-        builder =>
-        {
-            builder.WithOrigins("*")
-                .AllowAnyMethod().AllowAnyHeader();
-        }
-    );
+                builder =>
+                {
+                    builder.WithOrigins("*")
+                            .AllowAnyMethod().AllowAnyHeader();
+                });
 });
-
-builder.Services.AddControllers();
 
 //Dipendency Injection
 builder.Services.AddScoped<IImageRepository, ImageRepository>();
@@ -38,9 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
-app.UseAuthentication();
+//app.UseHttpsRedirection();
 
 app.UseCors("MyPolicy");
 

@@ -70,21 +70,58 @@ export default function Home(){
         console.log(newData);
     }
 
-    function Apply(){
-        const transfer = new FormData();
-        transfer.append('imgFile', data.imgFile);
-        transfer.append('eff1', data.eff1);
-        transfer.append('eff2', data.eff2);
-        transfer.append('eff3', data.eff3);
-        transfer.append('radious', data.radious);
+    function ValidateForm(){
+        const newData = {...data};
+        if(newData["imgFile"].length <= 0){
+            alert("Select one or some images!")
+            console.log("imgFile");
+            return false;
+        }
+        if(newData["eff1"] === "" || newData["eff1"] === undefined){
+            alert("Effect 1 is not validate!");
+            console.log("eff1");
+            return false;
+        }
+        else if(newData["eff2"] === "" || newData["eff2"] === undefined){
+            alert("Effect 2 is not validate!");
+            console.log("eff2");
+            return false;
+        }
+        else if(newData["eff3"] === "" || newData["eff3"] === undefined){
+            alert("Effect 3 is not validate!");
+            console.log("eff3");
+            return false;
+        }
+        else if(newData["radious"] === "" || newData["radious"] === undefined){
+            alert("Radious is not validate!")
+            console.log("radious");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
-        Services.postIamges(transfer)
-        .then(({data}) =>{
-          console.log(data);
-        }).catch(({response})=>{
-          console.log(response);
-        }) 
-        // console.log(transfer);
+    function Apply(){
+        if(ValidateForm()){
+            const transfer = new FormData();
+            for(var i = 0; i < (data.imgFile).length; ++i){
+                transfer.append('imgFile', data.imgFile[i]);
+            }
+            transfer.append('eff1', data.eff1);
+            transfer.append('eff2', data.eff2);
+            transfer.append('eff3', data.eff3);
+            transfer.append('radious', data.radious);
+    
+            Services.postIamges(transfer)
+            .then(({data}) =>{
+              console.log(data);
+              alert("Successfully Uploaded!");
+            }).catch(({response})=>{
+              console.log(response);
+              alert("Request Failed!");
+            }) 
+        }
     }
 
     return (
@@ -97,7 +134,7 @@ export default function Home(){
                                 <div>
                                     <div className="mb-3">
                                         <label htmlFor="imgFile" className="form-label">Select Images</label>
-                                        <input className="form-control" type="file" id="imgFile" onChange={(e) => ImageHandle(e)} multiple/>
+                                        <input className="form-control" type="file" id="imgFile" onChange={(e) => ImageHandle(e)} accept="image/*" multiple/>
                                     </div>
                                 </div>
                             </div>

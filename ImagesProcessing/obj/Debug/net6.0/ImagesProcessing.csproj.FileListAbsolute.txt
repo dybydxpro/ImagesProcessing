@@ -95,3 +95,6 @@ E:\Tharindu\GitHub\ImagesProcessing\ImagesProcessing\obj\Debug\net6.0\ref\Images
 E:\Tharindu\GitHub\ImagesProcessing\ImagesProcessing\bin\Debug\net6.0\System.Web.Cors.dll
 E:\Tharindu\GitHub\ImagesProcessing\ImagesProcessing\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Certificate.dll
 E:\Tharindu\GitHub\ImagesProcessing\ImagesProcessing\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Coding\VisualStudio\ImagesProcessing\ImagesProcessing\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Certificate.dll
+D:\Coding\VisualStudio\ImagesProcessing\ImagesProcessing\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Coding\VisualStudio\ImagesProcessing\ImagesProcessing\bin\Debug\net6.0\SixLabors.ImageSharp.dll
