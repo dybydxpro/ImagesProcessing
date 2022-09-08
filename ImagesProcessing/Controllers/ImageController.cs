@@ -24,34 +24,28 @@ namespace ImagesProcessing.Controllers
             {
                 try
                 {
-                    List<string> names = new List<string>();
-                    //foreach (var imageSet in images)
-                    //{
-                        foreach (var img in images.ImgFile)
+                    string imageName = "";
+                    foreach (var img in images.ImgFile)
+                    {
+                        imageName = Convert.ToString(_imageRepository.SaveImage(img));
+                        if(images.Eff1 == true)
                         {
-                            string imageName = Convert.ToString(_imageRepository.SaveImage(img));
-
-                        if (images.Eff1 == true)
-                        {
-                            bool s1 = _imageRepository.Effect01(img, imageName);
+                            _imageRepository.Effect01(imageName);
                         }
 
-                        //if (imageSet.Eff2 == true)
-                        //{
-                        //    bool s1 = _imageRepository.Effect02(img, imageName);
-                        //}
-
-                        //if (imageSet.Eff3 == true)
-                        //{
-                        //    bool s1 = _imageRepository.Effect03(img, imageName);
-                        //}
-                        names.Add(imageName);
+                        if (images.Eff2 == true)
+                        {
+                            _imageRepository.Effect02(imageName);
                         }
-                    //}
 
-                    return Ok();
+                        if (images.Eff3 == true)
+                        {
+                            _imageRepository.Effect03(imageName);
+                        }
+                    }
+                    return Ok(imageName);                    
                 }
-                catch (Exception e)
+                catch(Exception e)
                 {
                     return BadRequest(e);
                 }
@@ -60,8 +54,6 @@ namespace ImagesProcessing.Controllers
             {
                 return BadRequest("Validation Faild!");
             }
-
-            return Ok();
         }
     }
 }
